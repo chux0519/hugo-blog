@@ -9,13 +9,13 @@ pygmentsCodefences       = true
 # googleAnalytics        = ""                               # Tracking code, eg. "UA-111111111-1"
 
 [params]
-    favicon              = "sam.ico"
+    favicon              = "hexyoungs.ico"
     homepage             = "/"                           # What to call the home page link
     footerText           = "hexyoungs"
 
 # Metadata for Open Graph and Twitter
     description          = "Coding.."               # Max 160 characters show in search results
-    images               = ["tn.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
+    images               = ["hexyoungs.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
     title                = "hexyoungs"
 
 [[params.mainMenu]]
