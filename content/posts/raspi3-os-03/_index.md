@@ -6,7 +6,7 @@ draft: true
 tags: ["blog","story"]
 ---
 
-这是 raspi-os 的第三篇，主要想要设置好 uart，方便开发和调试。
+这是 raspi-os 的第三篇，主要想要设置好 qemu 中的 uart，方便开发和调试。
 
 ## UART
 
@@ -16,14 +16,9 @@ tags: ["blog","story"]
 
 这一节，我们使用 qemu 模拟这个过程，qemu 已经实现 UART，因此我们直接使用 PL011 的 UART 地址，往对应的地址写数据即可模拟数据发送了。
 
-## MMIO
-
-- 这些名词是什么 MMU / MMIO
-- 在哪里查找资料
-
 ## 技术手册
 
-网上公开的资料比较难找到 bcm2837(raspi3b) 的资料，大多都是 bcm2835 的资料。然而一番搜索后，发现 stanford 大学的 cs140e 课程，对资料做了更新，提供了 (bcm2837)[https://web.archive.org/web/20190407101616/https://cs140e.sergio.bz/docs/BCM2837-ARM-Peripherals.pdf] 的资料。
+网上公开的资料比较难找到 bcm2837(raspi3b) 的资料，大多都是 bcm2835 的资料。然而一番搜索后，发现 stanford 大学的 cs140e 课程，对资料做了更新，提供了 [bcm2837](https://web.archive.org/web/20190407101616/https://cs140e.sergio.bz/docs/BCM2837-ARM-Peripherals.pdf) 的资料。
 
 两个芯片的主要区别在于 GPIO 的物理基址，bcm2835 是 0x20000000，而 bcm2837 是 0x3F000000
 
@@ -44,3 +39,11 @@ tags: ["blog","story"]
 3. 总线地址，在总线中，GPIO 的基址是 0x7E000000
 
 因此可以看出：对于 GPIO 来讲，总线 0x7Exxxxxx 对应虚拟地址 0xF2xxxxxx，对应物理地址 0x3Fxxxxxx
+
+## qemu
+
+在 qemu 的源码中，我们可以找到一个 magic number：`0x3F20_1000`，即模拟器模拟树莓派的物理地址，往这个物理地址写数据，即等同于通过 uart 进行数据发送。
+
+然后在启动 qemu 时，加上参数 `-serial stdio`，就能够在控制台输出数据了。
+
+如图： ![](qemu-output1.png)
