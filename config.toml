@@ -1,8 +1,8 @@
-baseurl                  = "https://hexyoungs.club/"           # Your domain name. Must end with "/"
+baseurl                  = "https://chux0519.github.io/"           # Your domain name. Must end with "/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 isMultilingual           = false
-title                    = "hexyoungs"
+title                    = "chux0519"
 theme                    = "sam"
 pygmentsStyle            = "monokai"                        # https://help.farbox.com/pygments.html
 pygmentsCodefences       = true
@@ -11,12 +11,12 @@ pygmentsCodefences       = true
 [params]
     favicon              = "hexyoungs.ico"
     homepage             = "/"                           # What to call the home page link
-    footerText           = "hexyoungs"
+    footerText           = "chux0519"
 
 # Metadata for Open Graph and Twitter
     description          = "Coding.."               # Max 160 characters show in search results
     images               = ["hexyoungs.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
-    title                = "hexyoungs"
+    title                = "chux0519"
 
 [[params.mainMenu]]
     link = "/posts"
